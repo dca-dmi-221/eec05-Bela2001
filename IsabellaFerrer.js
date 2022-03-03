@@ -106,8 +106,26 @@ let onVerificationWordC = "Gomosos";
 let onVerificationWordD = "Somos";
 
 function palindromeVerifier(word) {
-   // :)
+    let output = "La palabra " + word;
+    word = word.toUpperCase();
+    let aux = true;
+    for(let i = 0; i < Math.floor(word.length/2); i++){
+        if(word[i] != word[(word.length-i-1)]){
+            aux = false;
+        }
+    }
+
+    if(!aux){
+        output += " no"
+    }
+
+    console.log(output + " es un palindromo");
 }
+
+palindromeVerifier(onVerificationWordA);
+palindromeVerifier(onVerificationWordB);
+palindromeVerifier(onVerificationWordC);
+palindromeVerifier(onVerificationWordD);
 
 
 /*Dado un objeto que contiene una lista de palabras contar el
