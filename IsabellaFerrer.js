@@ -39,10 +39,18 @@ let testWordsList = [
 
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
-   // :)
+    let aux = false;
+    for(let i = 0; i < wordsList.length; i++){
+        if(wordsList[i].toUpperCase() === targetWord.toUpperCase()){
+            aux = true;
+        }
+    }
+    console.log(aux);
 }
 
-
+wordSearcherIgnoreCase(testTargetWordA, testWordsList);
+wordSearcherIgnoreCase(testTargetWordB, testWordsList);
+wordSearcherIgnoreCase(testTargetWordC, testWordsList);
 
 /*Dado un arreglo de strings, retornar la palabra más larga,
 la más corta y el tamaño promedio, el arreglo debe ser
