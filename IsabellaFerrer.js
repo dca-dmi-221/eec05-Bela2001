@@ -4,7 +4,19 @@
 
 let testWord = "esternocleidomastoideo";
 function wordCutter(word) {
-   // :)
+    let used = [];
+    for(let i = 0; i < word.length; i++){
+        let aux = false;
+        
+        while(!aux){
+            let r = Math.floor(Math.random()*word.length);
+            if(!used.includes(r)){
+                console.log(word[r]);
+                used.push(r);
+                aux = true;
+            }
+        }
+    }
 }
 wordCutter(testWord);
 
