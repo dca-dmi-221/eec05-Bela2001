@@ -69,8 +69,33 @@ let testSampleList = [
 ];
 
 function wordLengthClassifier(wordsList) {
-    // :)
+    let long = "";
+    let short = wordsList[0];
+    let avg = 0;
+    let counter = 0;
+
+    for(let i = 0; i < wordsList.length; i++){
+        //Largest
+        if(wordsList[i].length > long.length){
+            long = wordsList[i];
+        }
+
+        //Shortest
+        if(wordsList[i].length < short.length){
+            short = wordsList[i];
+        }
+
+        avg += wordsList[i].length;
+        counter++;
+    }
+    avg = avg/counter;
+
+    console.log("Palabra mas larga: " +long);
+    console.log("Palabra mas corta: "+short);
+    console.log("Promedio: "+avg);
 }
+
+wordLengthClassifier(testSampleList);
 
 
 /*Dado un string retorna si este es o no un palíndromo. No debe diferenciar entre mayúsculas y minúsculas*/
