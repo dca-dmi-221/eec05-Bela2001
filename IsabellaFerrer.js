@@ -4,7 +4,19 @@
 
 let testWord = "esternocleidomastoideo";
 function wordCutter(word) {
-   // :)
+    let used = [];
+    for(let i = 0; i < word.length; i++){
+        let aux = false;
+        
+        while(!aux){
+            let r = Math.floor(Math.random()*word.length);
+            if(!used.includes(r)){
+                console.log(word[r]);
+                used.push(r);
+                aux = true;
+            }
+        }
+    }
 }
 wordCutter(testWord);
 
@@ -27,10 +39,18 @@ let testWordsList = [
 
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
-   // :)
+    let aux = false;
+    for(let i = 0; i < wordsList.length; i++){
+        if(wordsList[i].toUpperCase() === targetWord.toUpperCase()){
+            aux = true;
+        }
+    }
+    console.log(aux);
 }
 
-
+wordSearcherIgnoreCase(testTargetWordA, testWordsList);
+wordSearcherIgnoreCase(testTargetWordB, testWordsList);
+wordSearcherIgnoreCase(testTargetWordC, testWordsList);
 
 /*Dado un arreglo de strings, retornar la palabra más larga,
 la más corta y el tamaño promedio, el arreglo debe ser
@@ -49,8 +69,33 @@ let testSampleList = [
 ];
 
 function wordLengthClassifier(wordsList) {
-    // :)
+    let long = "";
+    let short = wordsList[0];
+    let avg = 0;
+    let counter = 0;
+
+    for(let i = 0; i < wordsList.length; i++){
+        //Largest
+        if(wordsList[i].length > long.length){
+            long = wordsList[i];
+        }
+
+        //Shortest
+        if(wordsList[i].length < short.length){
+            short = wordsList[i];
+        }
+
+        avg += wordsList[i].length;
+        counter++;
+    }
+    avg = avg/counter;
+
+    console.log("Palabra mas larga: " +long);
+    console.log("Palabra mas corta: "+short);
+    console.log("Promedio: "+avg);
 }
+
+wordLengthClassifier(testSampleList);
 
 
 /*Dado un string retorna si este es o no un palíndromo. No debe diferenciar entre mayúsculas y minúsculas*/
@@ -61,8 +106,26 @@ let onVerificationWordC = "Gomosos";
 let onVerificationWordD = "Somos";
 
 function palindromeVerifier(word) {
-   // :)
+    let output = "La palabra " + word;
+    word = word.toUpperCase();
+    let aux = true;
+    for(let i = 0; i < Math.floor(word.length/2); i++){
+        if(word[i] != word[(word.length-i-1)]){
+            aux = false;
+        }
+    }
+
+    if(!aux){
+        output += " no"
+    }
+
+    console.log(output + " es un palindromo");
 }
+
+palindromeVerifier(onVerificationWordA);
+palindromeVerifier(onVerificationWordB);
+palindromeVerifier(onVerificationWordC);
+palindromeVerifier(onVerificationWordD);
 
 
 /*Dado un objeto que contiene una lista de palabras contar el
